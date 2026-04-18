@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Quiz System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <main class="main-wrapper">
+    <!-- Login Screen -->
+    <section class="screen active" id="login-screen">
+      <div class="card split-card auth-card">
+        <div class="hero-panel">
+          <div class="hero-box">
+            <span class="eyebrow">Frontend Project</span>
+            <h1>Online Quiz System</h1>
+            <p class="hero-text">
+              Practice quizzes in different categories with a clean design,
+              timer, leaderboard, certificate, and random questions. this is made by Team 2. This project is made using html, css and javascript.
+            </p>
+
+            <div class="hero-tags">
+              <span>50 Questions / Category</span>
+              <span>Random 20 Questions</span>
+              <span>Leaderboard</span>
+              <span>Certificate</span>
+            </div>
+
+            <div class="feature-stack">
+              <div class="feature-chip">
+                <strong>4 Categories</strong>
+                <small>GK, Science, Sports, Current Affairs</small>
+              </div>
+              <div class="feature-chip">
+                <strong>Simple & Smooth</strong>
+                <small>Login, play quiz, check score, download certificate</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <div class="auth-head">
+            <div>
+              <h2>Welcome Back</h2>
+              <p class="panel-subtitle">Login to continue your quiz journey.</p>
+            </div>
+            <button id="logout-btn" class="logout-btn hidden" type="button">Logout</button>
+          </div>
+
+          <!-- Login Form -->
+          <div id="login-form">
+            <div class="form-group">
+              <label for="username">Full Name</label>
+              <input type="text" id="username" placeholder="Enter your full name" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter your email" />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Enter your password" />
+            </div>
+
+            <button id="continue-btn" class="primary-btn" type="button">Login</button>
+
+            <p class="form-link-text">
+              Don’t have an account?
+              <button id="show-register-btn" class="link-btn" type="button">Create one</button>
+            </p>
+
+            <div class="demo-login-info">
+              <p class="demo-title">Demo Account</p>
+              <p>You can also test the project using this login:</p>
+              <p><strong>Name:</strong> shaurya</p>
+              <p><strong>Email:</strong> shauryapratap90@gmail.com</p>
+              <p><strong>Password:</strong> 190710</p>
+            </div>
+
+            <div class="login-leaderboard">
+              <div class="section-title-row">
+                <h3>Top Players</h3>
+                <span class="mini-pill">Top 3</span>
+              </div>
+              <div id="login-leaderboard-list" class="login-leaderboard-list"></div>
+            </div>
+          </div>
+
+          <!-- Register Form -->
+          <div id="register-form" class="hidden">
+            <div class="register-header">
+              <h2>Register</h2>
+              <button id="register-back-btn" class="link-btn" type="button">← Back</button>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-username">Full Name</label>
+              <input type="text" id="reg-username" placeholder="Enter your full name" />
+            </div>
+
+            <div class="form-group">
+              <label for="reg-email">Email Address</label>
+              <input type="email" id="reg-email" placeholder="Enter your email" />
+            </div>
+
+            <div class="form-group">
+              <label for="reg-password">Password</label>
+              <input type="password" id="reg-password" placeholder="Minimum 6 characters" />
+            </div>
+
+            <div class="form-group">
+              <label for="reg-confirm-password">Confirm Password</label>
+              <input type="password" id="reg-confirm-password" placeholder="Confirm your password" />
+            </div>
+
+            <button id="register-submit-btn" class="primary-btn" type="button">Create Account</button>
+
+            <p class="form-link-text">
+              Already have an account?
+              <button id="show-login-btn" class="link-btn" type="button">Login here</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Screen -->
+    <section class="screen" id="category-screen">
+      <div class="card section-card">
+        <div class="topbar">
+          <div>
+            <span class="eyebrow">Dashboard</span>
+            <h2>Select Quiz Category</h2>
+            <p class="panel-subtitle">Hi, <span id="display-name"></span> — pick a category to begin.</p>
+          </div>
+
+          <div class="topbar-actions">
+            <button id="open-leaderboard-btn" class="secondary-btn" type="button">View Scores</button>
+            <button id="category-logout-btn" class="danger-btn" type="button">Logout</button>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-btn" data-category="gk" type="button">
+            <span class="category-icon">🌍</span>
+            <strong>General Knowledge</strong>
+            <small>Daily facts, places, people, and basics</small>
+          </button>
+
+          <button class="category-btn" data-category="science" type="button">
+            <span class="category-icon">🧪</span>
+            <strong>Science</strong>
+            <small>Biology, chemistry, physics, and nature</small>
+          </button>
+
+          <button class="category-btn" data-category="sports" type="button">
+            <span class="category-icon">🏏</span>
+            <strong>Sports</strong>
+            <small>Games, players, tournaments, and records</small>
+          </button>
+
+          <button class="category-btn" data-category="current" type="button">
+            <span class="category-icon">📰</span>
+            <strong>Current Affairs</strong>
+            <small>Digital India, space, tech, and trends</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Screen -->
+    <section class="screen" id="quiz-screen">
+      <div class="quiz-shell">
+        <div class="quiz-topbar">
+          <div>
+            <span class="eyebrow">Quiz in Progress</span>
+            <h2 id="category-title">Quiz</h2>
+            <p id="question-count">Question 1 of 20</p>
+          </div>
+
+          <div class="quiz-top-right">
+            <div class="timer-box">Time Left: <span id="time">20</span>s</div>
+            <button id="quiz-logout-btn" class="danger-btn compact-btn" type="button">Logout</button>
+          </div>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="question-card">
+          <h3 id="question-text">Question text will appear here</h3>
+          <div class="answers" id="answer-buttons"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <button id="next-btn" class="primary-btn hidden" type="button">Next Question</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result Screen -->
+    <section class="screen" id="result-screen">
+      <div class="card result-card">
+        <div class="result-icon">🏆</div>
+        <span class="eyebrow">Quiz Finished</span>
+        <h2>Well Done, <span id="final-name"></span></h2>
+        <p class="panel-subtitle">Here is how you performed in this quiz.</p>
+
+        <div class="result-box">
+          <p><strong>Category:</strong> <span id="final-category"></span></p>
+          <p><strong>Score:</strong> <span id="final-score"></span></p>
+          <p><strong>Percentage:</strong> <span id="final-percentage"></span>%</p>
+          <p id="certificate-message" class="certificate-message"></p>
+        </div>
+
+        <div class="result-buttons">
+          <button id="play-again-btn" class="primary-btn" type="button">Play Again</button>
+          <button id="change-category-btn" class="secondary-btn" type="button">Change Category</button>
+          <button id="download-certificate-btn" class="primary-btn hidden" type="button">Download Certificate</button>
+          <button id="result-back-btn" class="secondary-btn" type="button">Back Home</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard Screen -->
+    <section class="screen" id="leaderboard-screen">
+      <div class="card section-card">
+        <div class="topbar">
+          <div>
+            <span class="eyebrow">Leaderboard</span>
+            <h2>Top Scores</h2>
+            <p class="panel-subtitle">Best recent quiz scores saved in this browser.</p>
+          </div>
+
+          <div class="topbar-actions">
+            <button id="back-to-home-btn" class="secondary-btn" type="button">Back to Categories</button>
+            <button id="clear-leaderboard-btn" class="danger-btn" type="button">Clear</button>
+          </div>
+        </div>
+
+        <div id="leaderboard-list" class="leaderboard-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
